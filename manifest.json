@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "icons": {
+    "16": "icons/caelum-16.png",
+    "32": "icons/caelum-32.png",
+    "48": "icons/caelum-48.png",
+    "128": "icons/caelum-128.png"
+  },
+  "name": "Caelum",
+  "version": "2.0",
+  "description": "Görme, bilişsel, motor ve işitme ihtiyaçları için sayfa analizi ve tek tuşla erişilebilirlik desteği.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://openrouter.ai/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/state.js",
+        "scripts/ai.js",
+        "scripts/ui.js",
+        "scripts/filters.js",
+        "scripts/navigation.js",
+        "scripts/audit.js",
+        "scripts/guide.js",
+        "scripts/main.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "Caelum’u göster",
+    "default_icon": {
+      "16": "icons/caelum-16.png",
+      "32": "icons/caelum-32.png"
+    }
+  }
+}
